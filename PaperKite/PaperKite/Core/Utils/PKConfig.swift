@@ -19,10 +19,11 @@ struct PKConfig {
         case showIcon = 6
         case hideIcon = 7
         case start = 8
-        case help = 9
-        case about = 10
-        case feedback = 11
-        case exit = 12
+        case clean = 9
+        case help = 10
+        case about = 11
+        case feedback = 12
+        case exit = 13
     }
     
     static func getTag(_ tag: MenuTag) -> Int {

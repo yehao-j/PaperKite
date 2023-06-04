@@ -27,22 +27,28 @@ class PKPlayerController: NSViewController {
     }
     
     @objc private func nextWallpaper(_ notification: NSNotification) {
+        NSApplication.shared.appDelegate?.statusBar.startAnimated()
         if PKDataManager.shared.style == .video {
             PKNetwork.shared.video { [unowned self] (url) in
                 self.playerView.videoURL = url
                 print("下一个视频")
+                NSApplication.shared.appDelegate?.statusBar.stopAnimated()
             } failure: {
                 PKAlert.show("视频获取失败请重试")
+                NSApplication.shared.appDelegate?.statusBar.stopAnimated()
             }
         } else {
             PKNetwork.shared.wallpaper { (url) in
                 if let screen = NSScreen.main {
                     try? NSWorkspace.shared.setDesktopImageURL(url, for: screen, options: [NSWorkspace.DesktopImageOptionKey.imageScaling: NSImageScaling.scaleAxesIndependently.rawValue])
+                    NSApplication.shared.appDelegate?.statusBar.stopAnimated()
                 } else {
                     PKAlert.show("壁纸获取失败请重试")
+                    NSApplication.shared.appDelegate?.statusBar.stopAnimated()
                 }
             } failure: {
                 PKAlert.show("壁纸获取失败请重试")
+                NSApplication.shared.appDelegate?.statusBar.stopAnimated()
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  File Name:  String+PaperKite.swift
+//  File Name:  String+.swift
 //  Product Name:   PaperKite
 //  Created Date:   2021/2/11 16:10
 //

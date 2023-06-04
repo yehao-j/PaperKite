@@ -20,12 +20,17 @@ struct PKNetwork {
         let wallpapers = PKDataManager.shared.wallpapers
         let index = PKDataManager.shared.currentWallpaperIndex + 1
         PKDataManager.shared.currentWallpaperIndex = index
+        guard wallpapers.count > 0 else {
+            failure?()
+            return
+        }
         if wallpapers.count > 0, index < wallpapers.count, index >= 0 {
             let wallpaper = wallpapers[index]
             downloadWallpaper(wallpaper.largeImageURL, update: true, success: success, failure: failure)
             return
         }
         guard let url = URL.init(string: "https://pixabay.com/api/") else {
+            failure?()
             return
         }
         PKDataManager.shared.currentWallpaperPage += 1
